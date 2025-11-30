@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Pixel</title>
+
+<script>
+	let field = document.querySelector(".field")
+
+let CURRENT_COLOR = "rgb(255,102,46)"
+const DEFALT_COLOR = "rgb(62,62,62)"
+const COLOR_MAP = {
+    "red" : "rgb(255, 102, 46)",
+    "green" : "rgb(26, 218, 84)",
+    "blue" : "rgb(83, 15, 255)",
+    "yellow" : "rgb(255, 236, 26)",
+    "black" : "rgb(50, 50, 50)"
+}
+var isClicked = false;
+
+
+
+for(let i = 0; i < 450; i++)
+{
+    let cell = document.createElement("div")
+    cell.classList.add("cell")
+    // cell.addEventListener("click",x=>{cell.style.backgroundColor=CURRENT_COLOR})
+    cell.addEventListener("mouseover",x=>{
+        if (isClicked){
+            cell.style.backgroundColor = CURRENT_COLOR
+        }
+    })
+    cell.addEventListener("mousedown",x=>{
+        cell.style.backgroundColor = CURRENT_COLOR
+    })
+    field.appendChild(cell)
+}
+
+
+
+document.addEventListener("mousedown",function(){
+    isClicked = true;
+})
+document.addEventListener("mouseup",function(){
+    isClicked = false;
+})
+
+
+// function toggleColor(name){
+    
+// }
+
+// let color_cell_red = document.querySelectorAll('.color-cell-red');
+// color_cell_red.addEventListener('click', toggleColor("red"));
+
+// let color_cell_green = document.querySelectorAll('.color-cell-green');
+// color_cell_green.addEventListener('click', toggleColor("green"));
+
+// let color_cell_grey = document.querySelectorAll('.color-cell-grey');
+// color_cell_grey.addEventListener('click', toggleColor("grey"));
+
+// let color_cell_yellow = document.querySelectorAll('.color-cell-yellow');
+// color_cell_yellow.addEventListener('click', toggleColor("yellow"));
+
+// let color_cell_black = document.querySelectorAll('.color-cell-black');
+// color_cell_black.addEventListener('click', toggleColor("black"));
+
+let color_cells = document.querySelectorAll('.color-cell');
+for (let i = 0; i < color_cells.length; i++) {
+    let color_cell = color_cells[i];
+    color_cell.addEventListener('click', function() {
+        // let colorClass = "";
+        // if (color_cell.classList.contains("red")) {
+        //     colorClass = "red";
+        // } else if (color_cell.classList.contains("green")) {
+        //     colorClass = "green";
+        // } else if (color_cell.classList.contains("blue")) {
+        //     colorClass = "blue";
+        // }
+
+
+        const colorClasses = COLOR_MAP.keys;
+        for (let cls of colorClasses) {
+            if (color_cell.classList.contains(cls)) {
+                // Присваиваем нужный RGB-код цвета из COLOR_MAP
+                CURRENT_COLOR = COLOR_MAP[cls];
+                break;
+            }
+        }
+        console.log(`Выбран цвет: ${CURRENT_COLOR}`);
+        
+    });
+}
+
+
+</script>
+</head>
+<style>
+	header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+nav li {
+    margin-left: 1rem;
+}
+a {
+
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.field-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background-color: black;
+}
+.field{
+    width: 60vw;
+    height: 30vw;
+    display: grid;
+    grid-template-columns: repeat(30,1fr);
+    grid-template-rows: repeat(15,1fr);
+    gap: 1px;
+}
+.cell{
+    background-color: blanchedalmond;
+}
+
+.color-politr{
+    width: 25px;
+    height:  125px;
+    background-color: blue;
+}
+.color-cell-red{
+    width: 25px;
+    height:  25px;
+    background-color: brown;
+
+}
+.color-cell-green{
+    width: 25px;
+    height:  25px;
+    background-color: green;
+}
+.color-cell-blue{
+    width: 25px;
+    height:  25px;
+    background-color: rgb(142, 142, 155);
+}
+.color-cell-yellow{
+    width: 25px;
+    height:  25px;
+    background-color: yellow;
+}
+.color-cell-black{
+    width: 25px;
+    height:  25px;
+    background-color: black;
+}
+</style>
+
+<body>
+    <div class="logo">
+            <a href="/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnkXX1msb3FcwUKdveOb4VJ_8dlsezqUlqEQ&s" alt="Логотип"></a>
+    </div>
+    <!-- Навигационное меню -->
+    <nav>
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="field-container">
+        <div class="color-politr">
+            <!-- Цветные квадратики -->
+            <div class="color-cell color-cell-red"></div>
+            <div class="color-cell color-cell-green"></div>
+            <div class="color-cell color-cell-blue"></div>
+            <div class="color-cell color-cell-yellow"></div>
+            <div class="color-cell color-cell-black"></div>
+        </div>
+        <div class="field"></div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>
+<!-- https://docs.google.com/document/d/10OqGgiXrjcNUu3enMIcjc7zHXDSCg1QaW0R3ef50WAI/edit?tab=t.0 -->
+<!-- https://www.netlify.com/ -->
