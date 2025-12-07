@@ -6,96 +6,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Pixel</title>
 
-<script>
-	let field = document.querySelector(".field")
 
-let CURRENT_COLOR = "rgb(255,102,46)"
-const DEFALT_COLOR = "rgb(62,62,62)"
-const COLOR_MAP = {
-    "red" : "rgb(255, 102, 46)",
-    "green" : "rgb(26, 218, 84)",
-    "blue" : "rgb(83, 15, 255)",
-    "yellow" : "rgb(255, 236, 26)",
-    "black" : "rgb(50, 50, 50)"
-}
-var isClicked = false;
-
-
-
-for(let i = 0; i < 450; i++)
-{
-    let cell = document.createElement("div")
-    cell.classList.add("cell")
-    // cell.addEventListener("click",x=>{cell.style.backgroundColor=CURRENT_COLOR})
-    cell.addEventListener("mouseover",x=>{
-        if (isClicked){
-            cell.style.backgroundColor = CURRENT_COLOR
-        }
-    })
-    cell.addEventListener("mousedown",x=>{
-        cell.style.backgroundColor = CURRENT_COLOR
-    })
-    field.appendChild(cell)
-}
-
-
-
-document.addEventListener("mousedown",function(){
-    isClicked = true;
-})
-document.addEventListener("mouseup",function(){
-    isClicked = false;
-})
-
-
-// function toggleColor(name){
-    
-// }
-
-// let color_cell_red = document.querySelectorAll('.color-cell-red');
-// color_cell_red.addEventListener('click', toggleColor("red"));
-
-// let color_cell_green = document.querySelectorAll('.color-cell-green');
-// color_cell_green.addEventListener('click', toggleColor("green"));
-
-// let color_cell_grey = document.querySelectorAll('.color-cell-grey');
-// color_cell_grey.addEventListener('click', toggleColor("grey"));
-
-// let color_cell_yellow = document.querySelectorAll('.color-cell-yellow');
-// color_cell_yellow.addEventListener('click', toggleColor("yellow"));
-
-// let color_cell_black = document.querySelectorAll('.color-cell-black');
-// color_cell_black.addEventListener('click', toggleColor("black"));
-
-let color_cells = document.querySelectorAll('.color-cell');
-for (let i = 0; i < color_cells.length; i++) {
-    let color_cell = color_cells[i];
-    color_cell.addEventListener('click', function() {
-        // let colorClass = "";
-        // if (color_cell.classList.contains("red")) {
-        //     colorClass = "red";
-        // } else if (color_cell.classList.contains("green")) {
-        //     colorClass = "green";
-        // } else if (color_cell.classList.contains("blue")) {
-        //     colorClass = "blue";
-        // }
-
-
-        const colorClasses = COLOR_MAP.keys;
-        for (let cls of colorClasses) {
-            if (color_cell.classList.contains(cls)) {
-                // Присваиваем нужный RGB-код цвета из COLOR_MAP
-                CURRENT_COLOR = COLOR_MAP[cls];
-                break;
-            }
-        }
-        console.log(`Выбран цвет: ${CURRENT_COLOR}`);
-        
-    });
-}
-
-
-</script>
 </head>
 <style>
 	header {
@@ -220,6 +131,97 @@ body {
 
 
 </body>
+<script>
+	let field = document.querySelector(".field")
+
+let CURRENT_COLOR = "rgb(255,102,46)"
+const DEFALT_COLOR = "rgb(62,62,62)"
+const COLOR_MAP = {
+    "red" : "rgb(255, 102, 46)",
+    "green" : "rgb(26, 218, 84)",
+    "blue" : "rgb(83, 15, 255)",
+    "yellow" : "rgb(255, 236, 26)",
+    "black" : "rgb(50, 50, 50)"
+}
+var isClicked = false;
+
+
+
+for(let i = 0; i < 450; i++)
+{
+    let cell = document.createElement("div")
+    cell.classList.add("cell")
+    // cell.addEventListener("click",x=>{cell.style.backgroundColor=CURRENT_COLOR})
+    cell.addEventListener("mouseover",x=>{
+        if (isClicked){
+            cell.style.backgroundColor = CURRENT_COLOR
+        }
+    })
+    cell.addEventListener("mousedown",x=>{
+        cell.style.backgroundColor = CURRENT_COLOR
+    })
+    field.appendChild(cell)
+}
+
+
+
+document.addEventListener("mousedown",function(){
+    isClicked = true;
+})
+document.addEventListener("mouseup",function(){
+    isClicked = false;
+})
+
+
+// function toggleColor(name){
+    
+// }
+
+// let color_cell_red = document.querySelectorAll('.color-cell-red');
+// color_cell_red.addEventListener('click', toggleColor("red"));
+
+// let color_cell_green = document.querySelectorAll('.color-cell-green');
+// color_cell_green.addEventListener('click', toggleColor("green"));
+
+// let color_cell_grey = document.querySelectorAll('.color-cell-grey');
+// color_cell_grey.addEventListener('click', toggleColor("grey"));
+
+// let color_cell_yellow = document.querySelectorAll('.color-cell-yellow');
+// color_cell_yellow.addEventListener('click', toggleColor("yellow"));
+
+// let color_cell_black = document.querySelectorAll('.color-cell-black');
+// color_cell_black.addEventListener('click', toggleColor("black"));
+
+let color_cells = document.querySelectorAll('.color-cell');
+for (let i = 0; i < color_cells.length; i++) {
+    let color_cell = color_cells[i];
+    color_cell.addEventListener('click', function() {
+        // let colorClass = "";
+        // if (color_cell.classList.contains("red")) {
+        //     colorClass = "red";
+        // } else if (color_cell.classList.contains("green")) {
+        //     colorClass = "green";
+        // } else if (color_cell.classList.contains("blue")) {
+        //     colorClass = "blue";
+        // }
+
+
+        const colorClasses = COLOR_MAP.keys;
+        for (let cls of colorClasses) {
+            if (color_cell.classList.contains(cls)) {
+                // Присваиваем нужный RGB-код цвета из COLOR_MAP
+                CURRENT_COLOR = COLOR_MAP[cls];
+                break;
+            }
+        }
+        console.log(`Выбран цвет: ${CURRENT_COLOR}`);
+        
+    });
+}
+
+
+</script>
 </html>
 <!-- https://docs.google.com/document/d/10OqGgiXrjcNUu3enMIcjc7zHXDSCg1QaW0R3ef50WAI/edit?tab=t.0 -->
 <!-- https://www.netlify.com/ -->
+
